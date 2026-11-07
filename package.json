@@ -1,0 +1,52 @@
+{
+  "name": "our-free-model",
+  "version": "2.5.3",
+  "private": true,
+  "type": "module",
+  "description": "Our Free Model 独立 API 服务：不依赖 DSH/Cordis，提供 OpenAI Chat Completions、Responses 与 Anthropic Messages 兼容接口，附带本机网页管理、EAC 协付渠道、十三账号渠道与局域网推理中继。",
+  "main": "./packages/standalone/service.mjs",
+  "exports": {
+    ".": "./packages/standalone/service.mjs",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "start": "node packages/standalone/cli.mjs",
+    "start:standalone": "node packages/standalone/cli.mjs",
+    "build:standalone-channels": "node scripts/build-standalone-channels.mjs",
+    "build:standalone-ui": "node scripts/build-standalone-ui.mjs",
+    "typecheck:standalone": "npm --prefix packages/standalone run typecheck",
+    "test:standalone": "node scripts/standalone-test.mjs",
+    "test:management": "node scripts/standalone-management-test.mjs",
+    "test:standalone-channels": "node scripts/standalone-channels-test.mjs",
+    "test:standalone-lan": "node scripts/standalone-lan-test.mjs",
+    "test:channel-network": "node scripts/channel-network-test.mjs",
+    "pack:standalone": "node scripts/pack-standalone.mjs"
+  },
+  "files": [
+    "packages/standalone/cli.mjs",
+    "packages/standalone/service.mjs",
+    "packages/standalone/management.mjs",
+    "packages/standalone/login-terminal.mjs",
+    "packages/standalone/open-external.mjs",
+    "packages/standalone/eac.mjs",
+    "packages/standalone/package.json",
+    "packages/standalone/channels",
+    "packages/standalone/web",
+    "src",
+    "vendor/channel-pack/pack.js",
+    "vendor/channel-pack/qoder-auth-wasm.wasm",
+    "vendor/channel-pack/NOTICE.md",
+    "vendor/channel-pack/LICENSE",
+    "LICENSE"
+  ],
+  "keywords": [
+    "free-model",
+    "llm-provider",
+    "openai-compatible",
+    "anthropic-compatible"
+  ],
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "license": "MIT"
+}
